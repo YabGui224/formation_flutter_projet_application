@@ -6,6 +6,7 @@ import 'package:project_1/models/cart_model.dart';
 import 'package:project_1/widgets/cartItem.dart';
 import 'package:project_1/widgets/cart_price_widget.dart';
 import 'package:project_1/widgets/checkout_btn.dart';
+import 'package:project_1/widgets/empty_widget.dart';
 import 'package:project_1/widgets/promo_widget.dart';
 
 class MyOrder extends StatelessWidget {
@@ -24,7 +25,14 @@ class MyOrder extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
+        child: items.isEmpty 
+        ? EmptyWidget(
+          title: "Empty cart", 
+          desc: "Your cart is empty, please visite products page", 
+          image: "assets/icons/empty_cart.png"
+          )
+          
+        :  Column(
           spacing: 15,
           children: [
             Expanded(
@@ -38,7 +46,16 @@ class MyOrder extends StatelessWidget {
             ),
             PromoWidget(),
             CartPriceWidget(),
-            CheckoutBtn()
+            CheckoutBtn(
+              action: () {
+                
+              },
+              bgColor: AppColors.tabColor,
+              icon: Icons.arrow_forward_ios,
+              textColor: AppColors.primary,
+              title: "Checkout",
+              
+            )
           ],
         ),
       ),

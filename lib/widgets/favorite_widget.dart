@@ -10,6 +10,7 @@ class FavoriteWidget extends StatelessWidget {
     final size = MediaQuery.sizeOf(context);
     return Container(
       padding: .all(15),
+      margin: .only(bottom: 8),
       height: size.height * .15,
       width: size.width,
       decoration: BoxDecoration(
@@ -20,8 +21,8 @@ class FavoriteWidget extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            height: size.height * .2,
-            width: size.height * .2 ,
+            height: size.height * .15,
+            width: size.height * .15 ,
               decoration: BoxDecoration(
                 shape: .circle,
                 image: DecorationImage(
@@ -34,13 +35,14 @@ class FavoriteWidget extends StatelessWidget {
             Expanded(
               child: Column(
                 mainAxisAlignment: .center,
+                crossAxisAlignment: .start,
                 children: [
-                  Text("data", textAlign: .start, style: DefaultStyle.defaultTextBoldStyle,),
+                  Text("jlkfjdflfjlkfdjfkldj", style: DefaultStyle.defaultTextBoldStyle,),
                   Row(
                     crossAxisAlignment: .start,
                     spacing: 4,
                     children: [
-                      Icon(Icons.star_border_purple500),
+                      Icon(Icons.star_border_purple500, color: AppColors.tabColor,),
                       Text("4.8", style: DefaultStyle.defaultTextBoldStyle,),
                     ],
                   )
@@ -50,7 +52,7 @@ class FavoriteWidget extends StatelessWidget {
             CircleAvatar(
               radius: 20,
               backgroundColor: Colors.grey.withAlpha(50),
-              child: Icon(Icons.favorite_border, color: AppColors.cartBgColor,),
+              child: Icon(Icons.favorite_border, color: AppColors.tabColor,),
             )
         ],
       )
